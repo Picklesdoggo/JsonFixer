@@ -33,7 +33,9 @@ namespace JsonFixer
                     }
                     o.Elements = elements;
                 }
-                string fileName = fileEntry.Replace(".json","FIXED.json");
+                valutFile.FileName += "FIXED";
+                valutFile.ReferencePath.Replace("_VFO.json", "FIXED_VFO.json");
+                string fileName = fileEntry.Replace("_VFO.json", "FIXED_VFO.json");
                 string jsonFixed = JsonConvert.SerializeObject(valutFile, Formatting.Indented);
                 File.WriteAllText(fileName, jsonFixed);
             }
